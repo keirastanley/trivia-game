@@ -1,4 +1,4 @@
-:root {
+/*:root {
     --ffsd: 0px;
 }
 
@@ -6,7 +6,7 @@
         :root {
             --ffsd: 0.5px;
         }
-}
+}*/
 
 html {
     font-size: 1vw;
