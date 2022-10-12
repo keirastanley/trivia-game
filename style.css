@@ -1,0 +1,271 @@
+:root {
+    --ffsd: 0px;
+}
+
+@media not all and (min-resolution: .001dpcm) {
+        :root {
+            --ffsd: 0.5px;
+        }
+}
+
+html {
+    font-size: 1vw;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body, html {
+    font-family: 'Paytone One';
+    background-color: #58a0ff;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    background-color: #fff1e1;
+    border: 1px solid black;
+    z-index: 10;
+    position: relative;
+    grid-area: 15 / 22 / 65 / 65;
+
+}
+
+#main-text {
+    font-family: Kavivanar;
+    font-size: 2vw;
+    padding: 20px;
+}
+
+.main2 {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    z-index: 10;
+    position: relative;
+    grid-area: 40 / 22 / 65 / 65;
+    font-family: Kavivanar;
+    font-size: 2vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+}
+
+#category {
+    height: 100%;
+    width: 100%;
+    background-color: #fecddc;
+    border: 1px solid black;
+    z-index: 10;
+    position: relative;
+    grid-area: 8 / 22 / 15 / 55;
+    color:#000000;
+    font-family: Kavivanar;
+    text-align:justify;
+    text-indent: 6px;
+    font-size: 1.8vw;
+}
+
+input {
+    height: 25px;
+}
+
+button {
+    background-color: #fecddc;
+    font-size: 2vw;
+    font-family: 'Paytone One';
+}
+
+#difficulty {
+    height: 100%;
+    width: 100%;
+    background-color: #fecddc;
+    border: 1px solid black;
+    z-index: 10;
+    position: relative;
+    grid-area: 8 / 53 / 15 / 65;
+    color:#000000;
+    font-family: Kavivanar;
+    text-align:justify;
+    text-indent: 6px;
+    font-size: 1.8vw;
+    text-transform: capitalize;
+}
+
+#section {
+    /*grid-template-columns: auto min(100vw, 1366px) auto;*/
+    /*min-height: 100vh;*/
+    z-index:0;
+    /*overflow:hidden;*/
+    display:grid;
+    /*position:relative;*/
+    /*align-items:center;*/
+    }
+
+#container {
+    display: grid;
+    grid-template-columns: calc(min(100vw, 1366px) * 0.02244104) calc(min(100vw, 1366px) * 0.03824866) 0 calc(min(100vw, 1366px) * 0.00548542) 0 calc(min(100vw, 1366px) * 0.01470243) calc(min(100vw, 1366px) * 0.01889353) calc(min(100vw, 1366px) * 0.02318221) calc(min(100vw, 1366px) * 0.00953793) calc(min(100vw, 1366px) * 0.10322735) calc(min(100vw, 1366px) * 0.00953793) calc(min(100vw, 1366px) * 0.02318221) calc(min(100vw, 1366px) * 0.01351262) 0 calc(min(100vw, 1366px) * 0.00538091) calc(min(100vw, 1366px) * 0.02018786) 0 calc(min(100vw, 1366px) * 0.03824866) calc(min(100vw, 1366px) * 0.00835687) calc(min(100vw, 1366px) * 0.01364055) calc(min(100vw, 1366px) * 0.00169896) calc(min(100vw, 1366px) * 0.02775884) calc(min(100vw, 1366px) * 0.00123785) calc(min(100vw, 1366px) * 0.00771256) calc(min(100vw, 1366px) * 0.00839185) calc(min(100vw, 1366px) * 0.00123785) calc(min(100vw, 1366px) * 0.00774596) calc(min(100vw, 1366px) * 0.01951688) calc(min(100vw, 1366px) * 0.01364055) calc(min(100vw, 1366px) * 0.02047266) calc(min(100vw, 1366px) * 0.10952673) calc(min(100vw, 1366px) * 0.01218052) calc(min(100vw, 1366px) * 0.01662728) calc(min(100vw, 1366px) * 0.00123785) calc(min(100vw, 1366px) * 0.00774596) calc(min(100vw, 1366px) * 0.00835845) calc(min(100vw, 1366px) * 0.00123785) calc(min(100vw, 1366px) * 0.0007796) calc(min(100vw, 1366px) * 0.00693297) calc(min(100vw, 1366px) * 0.00688168) calc(min(100vw, 1366px) * 0.01834643) calc(min(100vw, 1366px) * 0.01234069) calc(min(100vw, 1366px) * 0.0082072) calc(min(100vw, 1366px) * 0.00227791) calc(min(100vw, 1366px) * 0.00495477) calc(min(100vw, 1366px) * 0.008225) calc(min(100vw, 1366px) * 0.00191799) calc(min(100vw, 1366px) * 0.00731989) calc(min(100vw, 1366px) * 0.00800701) calc(min(100vw, 1366px) * 0.02387181) calc(min(100vw, 1366px) * 0.0104851) calc(min(100vw, 1366px) * 0.01314431) calc(min(100vw, 1366px) * 0.10362455) calc(min(100vw, 1366px) * 0.02067423) calc(min(100vw, 1366px) * 0.00553265) calc(min(100vw, 1366px) * 0.00828888) calc(min(100vw, 1366px) * 0.00731989) calc(min(100vw, 1366px) * 0.00800701) calc(min(100vw, 1366px) * 0.00198197) calc(min(100vw, 1366px) * 0.00723268) calc(min(100vw, 1366px) * 0.008225) calc(min(100vw, 1366px) * 0.01275797) calc(min(100vw, 1366px) * 0.00576836) calc(min(100vw, 1366px) * 0.01688787) calc(min(100vw, 1366px) * 0.02591177);
+    grid-template-rows: minmax(calc(min(100vw, 1366px) * 0.05622255), max-content) minmax(calc(min(100vw, 1366px) * 0.02326732), max-content) minmax(calc(min(100vw, 1366px) * 0.00940343), max-content) minmax(calc(min(100vw, 1366px) * 0.01836004), max-content) minmax(calc(min(100vw, 1366px) * 0.00125375), max-content) minmax(calc(min(100vw, 1366px) * 0.00538583), max-content) minmax(calc(min(100vw, 1366px) * 0.00838612), max-content) minmax(calc(min(100vw, 1366px) * 0.01056565), max-content) minmax(calc(min(100vw, 1366px) * 0.00626703), max-content) minmax(calc(min(100vw, 1366px) * 0.01223218), max-content) minmax(calc(min(100vw, 1366px) * 0.00422295), max-content) minmax(calc(min(100vw, 1366px) * 0.00009794), max-content) minmax(calc(min(100vw, 1366px) * 0.00692049), max-content) minmax(calc(min(100vw, 1366px) * 0.00003063), max-content) minmax(calc(min(100vw, 1366px) * 0.00930755), max-content) minmax(calc(min(100vw, 1366px) * 0.00623145), max-content) minmax(calc(min(100vw, 1366px) * 0.00018553), max-content) minmax(calc(min(100vw, 1366px) * 0.00645404), max-content) minmax(calc(min(100vw, 1366px) * 0.00930917), max-content) minmax(calc(min(100vw, 1366px) * 0.00015445), max-content) minmax(calc(min(100vw, 1366px) * 0.01158335), max-content) minmax(calc(min(100vw, 1366px) * 0.00454112), max-content) minmax(calc(min(100vw, 1366px) * 0.00332755), max-content) minmax(calc(min(100vw, 1366px) * 0.01785319), max-content) minmax(calc(min(100vw, 1366px) * 0.01246384), max-content) minmax(calc(min(100vw, 1366px) * 0.00163147), max-content) minmax(calc(min(100vw, 1366px) * 0.00626401), max-content) minmax(calc(min(100vw, 1366px) * 0.00523034), max-content) minmax(calc(min(100vw, 1366px) * 0.01410015), max-content) minmax(calc(min(100vw, 1366px) * 0.00694291), max-content) minmax(calc(min(100vw, 1366px) * 0.00167909), max-content) minmax(calc(min(100vw, 1366px) * 0.01205942), max-content) minmax(calc(min(100vw, 1366px) * 0.00204073), max-content) minmax(calc(min(100vw, 1366px) * 0.0084896), max-content) minmax(calc(min(100vw, 1366px) * 0.00599961), max-content) minmax(calc(min(100vw, 1366px) * 0.00555572), max-content) minmax(calc(min(100vw, 1366px) * 0.00253999), max-content) minmax(calc(min(100vw, 1366px) * 0.0023644), max-content) minmax(calc(min(100vw, 1366px) * 0.01016193), max-content) minmax(calc(min(100vw, 1366px) * 0.00789548), max-content) minmax(calc(min(100vw, 1366px) * 0.01098903), max-content) minmax(calc(min(100vw, 1366px) * 0.00365326), max-content) minmax(calc(min(100vw, 1366px) * 0.00019449), max-content) minmax(calc(min(100vw, 1366px) * 0.01066019), max-content) minmax(calc(min(100vw, 1366px) * 0.00103999), max-content) minmax(calc(min(100vw, 1366px) * 0.00421075), max-content) minmax(calc(min(100vw, 1366px) * 0.00585923), max-content) minmax(calc(min(100vw, 1366px) * 0.0112472), max-content) minmax(calc(min(100vw, 1366px) * 0.00258858), max-content) minmax(calc(min(100vw, 1366px) * 0.01521066), max-content) minmax(calc(min(100vw, 1366px) * 0.00340009), max-content) minmax(calc(min(100vw, 1366px) * 0.00026023), max-content) minmax(calc(min(100vw, 1366px) * 0.00413457), max-content) minmax(calc(min(100vw, 1366px) * 0.00101336), max-content) minmax(calc(min(100vw, 1366px) * 0.00791594), max-content) minmax(calc(min(100vw, 1366px) * 0.00889807), max-content) minmax(calc(min(100vw, 1366px) * 0.00489479), max-content) minmax(calc(min(100vw, 1366px) * 0.00022812), max-content) minmax(calc(min(100vw, 1366px) * 0.00160174), max-content) minmax(calc(min(100vw, 1366px) * 0.00842419), max-content) minmax(calc(min(100vw, 1366px) * 0.01233124), max-content) minmax(calc(min(100vw, 1366px) * 0.02978154), max-content) minmax(calc(min(100vw, 1366px) * 0.00190873), max-content) minmax(calc(min(100vw, 1366px) * 0.01514884), max-content) minmax(calc(min(100vw, 1366px) * 0.05964865), max-content);
+    }
+
+#div-title {
+    z-index: 1;
+    position: relative;
+    grid-area: 7 / 2 / 15 / 19;
+    font-size: 4vw;
+    text-transform:uppercase;
+    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;letter-spacing:-0.02em;
+    font-family:'Paytone One';
+    line-height:1em;
+    -webkit-text-fill-color:transparent;
+    text-align:center;
+}
+
+#div-squiggle {
+    z-index: 3;
+    grid-area: 17 / 10 / 21 / 11;
+}
+
+#div-info {
+    z-index: 2;
+    position: relative;
+    grid-area: 23 / 7 / 33 / 16;
+    color:#fff1e1;
+    font-size: 2vw;
+    text-transform:uppercase;
+    color:#fff1e1;
+    font-family:'Paytone One';
+    text-align:center;
+}
+
+#div-player-1-box {
+    z-index: 4;
+    position: relative;
+    grid-area: 37 / 3 / 43 / 18;
+    background-color: #fff1e1;
+    border: 1px solid black;
+    font-size: 2.4vw;
+    text-transform:uppercase;
+    color:#000000;
+    font-family: Kavivanar;
+    text-align:justify;
+    text-indent: 6px;
+}
+
+#div-player-2-box {
+    z-index: 6;
+    position: relative;
+    grid-area: 47 / 4 / 53 / 18;
+    background-color: #fff1e1;
+    border: 1px solid black;
+    font-size: 2.4vw;
+    text-transform:uppercase;
+    color:#000000;
+    font-family:Kavivanar;
+    text-align:justify;
+    text-indent: 6px;
+}
+
+#player-1-button {
+    background-color:#31ad54;
+    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    grid-area: 37 / 21 / 43 / 18;
+    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;
+    font-size: 1.8vw;
+    -webkit-text-fill-color:transparent;
+    text-transform: uppercase;
+}
+
+#player-2-button {
+    background-color:#31ad54;
+    z-index: 10;
+    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    grid-area: 47 / 21 / 53 / 18;
+    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;
+    font-size: 1.8vw;
+    -webkit-text-fill-color:transparent;
+    text-transform: uppercase;
+}
+
+#div-start-button {
+    grid-area: 57 / 8 / 65 / 13;
+}
+
+#start-button {
+    background-color:#31ad54;
+    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;
+    padding: 20px;
+    font-size: 4vw;
+    -webkit-text-fill-color:transparent;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 1200px) {
+    input {
+        max-width: 10vw;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+
+    #main-text {
+        font-size: 30px;
+    }
+    
+    .main2 {
+        font-size: 30px;
+    }
+    
+    #category {
+        font-size: 30px;
+    }
+    
+    #difficulty {
+        font-size: 30px;
+    }
+
+    button {
+        font-size: 30px;
+    }
+    
+    #div-title {
+        font-size: 60px;
+    }
+
+    #div-info {
+        font-size: 30px;
+    }
+    
+    #div-player-1-box {
+        font-size: 37px;
+    }
+    
+    #div-player-2-box {
+        font-size: 37px;
+    }
+    
+    #player-1-button {
+        font-size: 25px;
+    }
+    
+    #player-2-button {
+        font-size: 25px;
+    }
+
+    #start-button {
+        font-size: 60px;
+    }
+
+    #section {
+        width: 820vw;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+    #container {
+        width: 790vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
