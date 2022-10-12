@@ -272,12 +272,12 @@ function decodeHtml(html) {
 }
 
 function endGame() {
-    startButton.remove();
     player1box.style.backgroundColor = "#fff1e1";
     player1box.style.borderColor = "black";
     player2box.style.backgroundColor = "#fff1e1";
     player2box.style.borderColor = "black";
     if (playTimes > 9) {
+        startButton.remove();
         return true;
     }
     else {
