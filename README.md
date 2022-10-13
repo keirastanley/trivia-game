@@ -26,13 +26,15 @@ The trivia game takes its questions from an API (https://opentdb.com/api.php), l
 Other advantages of pushing the questions into an array were that I could ran the data through a function that removes all HTML special entities before storing it and it also makes it easy to access the data outside of the async function to be used in the rest of the program.
 
 #### Gameplay
-`playerTurn`
+##### `playerTurn`
 When the player clicks the start button, a function called `playerTurn` is called, which determines whose go it is. I achieved this using if /else statements and a variable called `playTimes` that is set to 0 and increases by 1 each time a question is answered. `if (playTimes % 2 == 0)`, i.e. `playTimes` is an even number, it is player 1's turn. `else` it's player 2's turn. 
 
 The appropriate player's name is highlighted and the screen informs that player using their name variable that it is their turn. After 1 second (`setTimeout(startGame, 1000)`), a function called `printQuestion` is called.
 
-`printQuestion`
-This function accesses the `question`, `category` and `difficulty` properties of `questions[playTimes]` (i.e. the first index in the questions array on the first go, the second on the second go etc.) and changes the `textContent` on the corresponding sections so that this information is displayed to the player. 
+##### `printQuestion`
+This function accesses the `question`, `category` and `difficulty` properties of `questions[playTimes]` (i.e. the first index in the questions array on the first go, the second on the second go etc.) and changes the `textContent` on the corresponding sections so that this information is displayed to the player.
+
+#####
  
 ### *Areas I'm working on*
 
