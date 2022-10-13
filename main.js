@@ -75,46 +75,49 @@ function player2Name(){
 
 //Function to determine whose turn it is, inform the players and start the game
 function playerTurn (){
-        //Remove the OK buttons once it's been used
-        ok1.remove();
-        ok2.remove();
-        //Remove the input boxes
-        input1.remove();
-        input2.remove();
-        //Put the scores on the screen
-        player1box.textContent = `${player1}: ${player1Score}`;
-        player2box.textContent = `${player2}: ${player2Score}`;
-        //When playTimes is an even number, it's player 1's turn
-        if (playTimes % 2 == 0) {
-            //The main text informs the players whose turn it is 
-            main.textContent = `${player1}, it's your turn.`;
-            //This info stays on the screen for 1 second and then the game begins
-            setTimeout(startGame, 1000);
-            //Highlight the box of the player whose turn it is
-            player1box.style.backgroundColor = "#fecddc";
-            player1box.style.borderColor = "red";
-            //Set the other box to it's normal colours
-            player2box.style.backgroundColor = "#fff1e1";
-            player2box.style.borderColor = "black";
+    //Remove the OK buttons
+    ok1.remove();
+    ok2.remove();
+    //Remove the input boxes
+    input1.remove();
+    input2.remove();
+    //Put the scores on the screen
+    player1box.textContent = `${player1}: ${player1Score}`;
+    player2box.textContent = `${player2}: ${player2Score}`;
+    //When playTimes is an even number, it's player 1's turn
+    if (playTimes % 2 == 0) {
+        //The main text informs the players whose turn it is 
+        main.textContent = `${player1}, it's your turn.`;
+        //This info stays on the screen for 1 second and then the game begins
+        setTimeout(startGame, 1000);
+        //Highlight the box of the player whose turn it is
+        player1box.style.backgroundColor = "#fecddc";
+        player1box.style.borderColor = "red";
+        //Set the other box to its normal colours (important when turns change over)
+        player2box.style.backgroundColor = "#fff1e1";
+        player2box.style.borderColor = "black";
+    }
+    //When playTimes is an odd number, it's player 2's turn
+    else {
+        main.textContent = `${player2}, it's your turn.`;
+        setTimeout(startGame, 1000);
+        player2box.style.backgroundColor = "#fecddc";
+        player2box.style.borderColor = "red";
+        player1box.style.backgroundColor = "#fff1e1";
+        player1box.style.borderColor = "black";        
+    }
+    //When the first player has had their turn...
+    if (playTimes > 0) {
+        //Access the buttons that were created by printQuestion
+        let buttons = document.querySelectorAll("button");
+        for (i = 0; i < 4; i++) { 
+            //Select each button
+            //Remove the text and any colour changes from gameplay, ready for the next question
+            buttons[i].textContent = ("");
+            buttons[i].style.backgroundColor = "#fecddc";
+            buttons[i].style.color = "black";
         }
-        //When playTimes is an odd number, it's player 2's turn
-        else {
-            main.textContent = `${player2}, it's your turn.`;
-            setTimeout(startGame, 1000);
-            player2box.style.backgroundColor = "#fecddc";
-            player2box.style.borderColor = "red";
-            player1box.style.backgroundColor = "#fff1e1";
-            player1box.style.borderColor = "black";
-        }
-        if (playTimes > 0) {
-            let buttons = document.querySelectorAll("button");
-            for (i = 0; i < 4; i++) { 
-                //Select each button
-                buttons[i].textContent = ("");
-                buttons[i].style.backgroundColor = "#fecddc";
-                buttons[i].style.color = "black";
-            }
-        } 
+    } 
 }
 
 //This function starts the game by calling the function that puts the first question on the screen
@@ -124,57 +127,56 @@ function startGame(){
 
 //Function to put questions and answers on the screen
 function printQuestion(){
+    //As long as all 10 questions haven't been asked
     if (playTimes < 10) {
-    //The main text displays a question from the questions array
-    main.textContent = `Question ${playTimes+1}/${10}: ${questions[playTimes].question}`;
-    //Show the category
-    category.textContent = `${questions[playTimes].category}`;
-    //Show the difficulty
-    difficulty.textContent = `${questions[playTimes].difficulty}`;
-    //Put all possible answers into an array
-    let answers = [
-        `${questions[playTimes].correct_answer}`, 
-        `${questions[playTimes].incorrect_answers[0]}`, 
-        `${questions[playTimes].incorrect_answers[1]}`, 
-        `${questions[playTimes].incorrect_answers[2]}`
-    ];
-    //Shuffle the array to randomise the order of the answers
-    shuffle(answers);
-    //If we're on the first question...
-    if (playTimes < 1) {
-        //Assign each answer to the text content of a button to be displayed on the screen
-        for (i = 0; i < answers.length; i++) { 
-        //Create each button
-        let newButton = document.createElement("button");
-        //Append the buttons to "main2", the area beneath the question
-        main2.appendChild(newButton);
-        //Add an id to each button
-        newButton.id = (`#button${i}`);
-        //Set the padding
-        newButton.style.padding = "40px";
-        //Set the textContent to be one of the answers
-        newButton.textContent = (`${answers[i]}`);
-        //Add an event listener so that, on click, the function to the determine if the player's answer was correct is called
-        newButton.addEventListener("click", correctAnswer);
+        //The main text displays a question from the questions array
+        main.textContent = `Question ${playTimes+1}/${10}: ${questions[playTimes].question}`;
+        //Show the category
+        category.textContent = `${questions[playTimes].category}`;
+        //Show the difficulty
+        difficulty.textContent = `${questions[playTimes].difficulty}`;
+        //Put all possible answers into an array
+        let answers = [
+            `${questions[playTimes].correct_answer}`, 
+            `${questions[playTimes].incorrect_answers[0]}`, 
+            `${questions[playTimes].incorrect_answers[1]}`, 
+            `${questions[playTimes].incorrect_answers[2]}`
+        ];
+        //Shuffle the array to randomise the order of the answers
+        shuffle(answers);
+        //If we're on the first question...
+        if (playTimes < 1) {
+            //Assign each answer to the text content of a button to be displayed on the screen
+            for (i = 0; i < answers.length; i++) { 
+                //Create each button
+                let newButton = document.createElement("button");
+                //Append the buttons to "main2", the area beneath the question
+                main2.appendChild(newButton);
+                //Add an id to each button
+                newButton.id = (`#button-${i}`);
+                //Set the padding
+                newButton.style.padding = "40px";
+                //Set the textContent to be one of the answers
+                newButton.textContent = (`${answers[i]}`);
+                //Add an event listener so that, on click, the function to the determine if the player's answer was correct is called
+                newButton.addEventListener("click", correctAnswer);
+            }
+        }
+        //After question 1...
+        if (playTimes > 0) {
+            //Access the buttons that were created
+            let buttons = document.querySelectorAll("button");
+            for (i = 0; i < answers.length; i++) { 
+                //Select each button and assign each one an answer
+                buttons[i].textContent = (`${answers[i]}`);
+            }
         }
     }
-    //After question 1...
-    if (playTimes > 0) {
-        let buttons = document.querySelectorAll("button");
-        for (i = 0; i < answers.length; i++) { 
-            //Select each button
-            buttons[i].textContent = (`${answers[i]}`);
-            buttons[i].style.backgroundColor = "#fecddc";
-            buttons[i].style.color = "black";
-        }
-    }
-}
-
 }
 
 //Function to determine if the answer was correct, update the score and pull up the next question
 function correctAnswer(event){
-
+    //Put all incorrect answers into an array
     let incorrectAnswers = [];
     for (let i = 0; i < 3; i++) {
         incorrectAnswers.push(questions[playTimes].incorrect_answers[i]);
@@ -186,8 +188,11 @@ function correctAnswer(event){
     for (i = 0; i < 4; i++) { 
         //If the button contains the right answer change its colours to green and white
         if (buttons[i].textContent == questions[playTimes].correct_answer){
+                //Change the colours so that the players know which answer was correct 
                 buttons[i].style.backgroundColor = "#31ad54";
                 buttons[i].style.color = "white";
+                //End the loop once the correct answer is found
+                break;
         }
     }
     //If player 1 got the right answer
@@ -202,7 +207,9 @@ function correctAnswer(event){
         playTimes++;
         //Change the start button to say "Next"
         startButton.textContent = "Next";
+        //Calls the endGame function to see if conditions to end the game have been met
         if (endGame() == true) {
+            //If so, determineWinner function is called after 1 second
             setTimeout(determineWinner, 1000);
         }
     }
@@ -226,6 +233,7 @@ function correctAnswer(event){
     if (incorrectAnswers.includes(event.target.textContent)) {
         //Inform the players
         main.textContent += " Sorry, not quite.";
+        //Change the colours so the players know the wrong answer was selected
         event.target.style.backgroundColor = "red";
         event.target.style.Color = "white";
         //Update the playTimes variable by 1
@@ -238,17 +246,9 @@ function correctAnswer(event){
     }
 }
 
-//Function to shuffle an array
-function shuffle(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
-
+//Function to determine who won and inform the players
 function determineWinner() {
+    //Remove all the buttons
     let buttons = document.querySelectorAll("button");
     for (i = 0; i < 4; i++) { 
         buttons[i].remove();
@@ -264,23 +264,37 @@ function determineWinner() {
     }
 }
 
-//Function to decode the text
+//Function to check if the game should end and, if not, prepare for the following questions
+function endGame() {
+    //Set the box styling back to normal
+    player1box.style.backgroundColor = "#fff1e1";
+    player1box.style.borderColor = "black";
+    player2box.style.backgroundColor = "#fff1e1";
+    player2box.style.borderColor = "black";
+    //Check if 10 questions have been asked
+    if (playTimes > 9) {
+        //If so, remove the start button and return true
+        startButton.remove();
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//Function to remove HTML special entities
 function decodeHtml(html) {
     var txt = document.createElement("textarea");
     txt.innerHTML = html;
     return txt.value;
 }
 
-function endGame() {
-    player1box.style.backgroundColor = "#fff1e1";
-    player1box.style.borderColor = "black";
-    player2box.style.backgroundColor = "#fff1e1";
-    player2box.style.borderColor = "black";
-    if (playTimes > 9) {
-        startButton.remove();
-        return true;
-    }
-    else {
-        return false;
+//Function to shuffle an array
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
