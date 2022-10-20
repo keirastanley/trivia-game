@@ -1,12 +1,20 @@
 /*:root {
     --ffsd: 0px;
 }
-
 @media not all and (min-resolution: .001dpcm) {
         :root {
             --ffsd: 0.5px;
         }
 }*/
+
+:root {
+    --default-player-box-background: #fff1e1;
+    --default-player-box-border: #000000;
+    --select-player-box-background: #fecddc;
+    --select-player-box-border: red;
+    --correct-answer: #31ad54;
+    --background-color: #58a0ff;
+}
 
 html {
     font-size: 1vw;
@@ -16,14 +24,14 @@ html {
 
 body, html {
     font-family: 'Paytone One';
-    background-color: #58a0ff;
+    background-color: var(--background-color);
 }
 
 .main {
     height: 100%;
     width: 100%;
-    background-color: #fff1e1;
-    border: 1px solid black;
+    background-color: var(--default-player-box-background);
+    border: 1px solid var(--default-player-box-border);
     z-index: 10;
     position: relative;
     grid-area: 15 / 22 / 65 / 65;
@@ -53,12 +61,12 @@ body, html {
 #category {
     height: 100%;
     width: 100%;
-    background-color: #fecddc;
-    border: 1px solid black;
+    background-color: var(--select-player-box-background);
+    border: 1px solid var(--default-player-box-border);
     z-index: 10;
     position: relative;
     grid-area: 8 / 22 / 15 / 55;
-    color:#000000;
+    color: var(--default-player-box-border);
     font-family: Kavivanar;
     text-align:justify;
     text-indent: 6px;
@@ -66,11 +74,12 @@ body, html {
 }
 
 input {
-    height: 25px;
+    height: 2.5vw;
+    width: 10vw;
 }
 
 button {
-    background-color: #fecddc;
+    background-color: var(--select-player-box-background);
     font-size: 2vw;
     font-family: 'Paytone One';
 }
@@ -78,12 +87,12 @@ button {
 #difficulty {
     height: 100%;
     width: 100%;
-    background-color: #fecddc;
-    border: 1px solid black;
+    background-color: var(--select-player-box-background);
+    border: 1px solid var(--default-player-box-border);
     z-index: 10;
     position: relative;
     grid-area: 8 / 53 / 15 / 65;
-    color:#000000;
+    color:var(--default-player-box-border);
     font-family: Kavivanar;
     text-align:justify;
     text-indent: 6px;
@@ -107,81 +116,98 @@ button {
     grid-template-rows: minmax(calc(min(100vw, 1366px) * 0.05622255), max-content) minmax(calc(min(100vw, 1366px) * 0.02326732), max-content) minmax(calc(min(100vw, 1366px) * 0.00940343), max-content) minmax(calc(min(100vw, 1366px) * 0.01836004), max-content) minmax(calc(min(100vw, 1366px) * 0.00125375), max-content) minmax(calc(min(100vw, 1366px) * 0.00538583), max-content) minmax(calc(min(100vw, 1366px) * 0.00838612), max-content) minmax(calc(min(100vw, 1366px) * 0.01056565), max-content) minmax(calc(min(100vw, 1366px) * 0.00626703), max-content) minmax(calc(min(100vw, 1366px) * 0.01223218), max-content) minmax(calc(min(100vw, 1366px) * 0.00422295), max-content) minmax(calc(min(100vw, 1366px) * 0.00009794), max-content) minmax(calc(min(100vw, 1366px) * 0.00692049), max-content) minmax(calc(min(100vw, 1366px) * 0.00003063), max-content) minmax(calc(min(100vw, 1366px) * 0.00930755), max-content) minmax(calc(min(100vw, 1366px) * 0.00623145), max-content) minmax(calc(min(100vw, 1366px) * 0.00018553), max-content) minmax(calc(min(100vw, 1366px) * 0.00645404), max-content) minmax(calc(min(100vw, 1366px) * 0.00930917), max-content) minmax(calc(min(100vw, 1366px) * 0.00015445), max-content) minmax(calc(min(100vw, 1366px) * 0.01158335), max-content) minmax(calc(min(100vw, 1366px) * 0.00454112), max-content) minmax(calc(min(100vw, 1366px) * 0.00332755), max-content) minmax(calc(min(100vw, 1366px) * 0.01785319), max-content) minmax(calc(min(100vw, 1366px) * 0.01246384), max-content) minmax(calc(min(100vw, 1366px) * 0.00163147), max-content) minmax(calc(min(100vw, 1366px) * 0.00626401), max-content) minmax(calc(min(100vw, 1366px) * 0.00523034), max-content) minmax(calc(min(100vw, 1366px) * 0.01410015), max-content) minmax(calc(min(100vw, 1366px) * 0.00694291), max-content) minmax(calc(min(100vw, 1366px) * 0.00167909), max-content) minmax(calc(min(100vw, 1366px) * 0.01205942), max-content) minmax(calc(min(100vw, 1366px) * 0.00204073), max-content) minmax(calc(min(100vw, 1366px) * 0.0084896), max-content) minmax(calc(min(100vw, 1366px) * 0.00599961), max-content) minmax(calc(min(100vw, 1366px) * 0.00555572), max-content) minmax(calc(min(100vw, 1366px) * 0.00253999), max-content) minmax(calc(min(100vw, 1366px) * 0.0023644), max-content) minmax(calc(min(100vw, 1366px) * 0.01016193), max-content) minmax(calc(min(100vw, 1366px) * 0.00789548), max-content) minmax(calc(min(100vw, 1366px) * 0.01098903), max-content) minmax(calc(min(100vw, 1366px) * 0.00365326), max-content) minmax(calc(min(100vw, 1366px) * 0.00019449), max-content) minmax(calc(min(100vw, 1366px) * 0.01066019), max-content) minmax(calc(min(100vw, 1366px) * 0.00103999), max-content) minmax(calc(min(100vw, 1366px) * 0.00421075), max-content) minmax(calc(min(100vw, 1366px) * 0.00585923), max-content) minmax(calc(min(100vw, 1366px) * 0.0112472), max-content) minmax(calc(min(100vw, 1366px) * 0.00258858), max-content) minmax(calc(min(100vw, 1366px) * 0.01521066), max-content) minmax(calc(min(100vw, 1366px) * 0.00340009), max-content) minmax(calc(min(100vw, 1366px) * 0.00026023), max-content) minmax(calc(min(100vw, 1366px) * 0.00413457), max-content) minmax(calc(min(100vw, 1366px) * 0.00101336), max-content) minmax(calc(min(100vw, 1366px) * 0.00791594), max-content) minmax(calc(min(100vw, 1366px) * 0.00889807), max-content) minmax(calc(min(100vw, 1366px) * 0.00489479), max-content) minmax(calc(min(100vw, 1366px) * 0.00022812), max-content) minmax(calc(min(100vw, 1366px) * 0.00160174), max-content) minmax(calc(min(100vw, 1366px) * 0.00842419), max-content) minmax(calc(min(100vw, 1366px) * 0.01233124), max-content) minmax(calc(min(100vw, 1366px) * 0.02978154), max-content) minmax(calc(min(100vw, 1366px) * 0.00190873), max-content) minmax(calc(min(100vw, 1366px) * 0.01514884), max-content) minmax(calc(min(100vw, 1366px) * 0.05964865), max-content);
     }
 
-#div-title {
+#title {
     z-index: 1;
     position: relative;
     grid-area: 7 / 2 / 15 / 19;
     font-size: 4vw;
     text-transform:uppercase;
-    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
-    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;letter-spacing:-0.02em;
+    -webkit-text-stroke:0.0175em var(--default-player-box-border);
+    text-shadow:0em 0em 0em var(--default-player-box-background);color: var(--default-player-box-border);letter-spacing:-0.02em;
     font-family:'Paytone One';
     line-height:1em;
     -webkit-text-fill-color:transparent;
     text-align:center;
 }
 
-#div-squiggle {
+#squiggle {
     z-index: 3;
     grid-area: 17 / 10 / 21 / 11;
 }
 
-#div-info {
+#info {
     z-index: 2;
     position: relative;
     grid-area: 23 / 7 / 33 / 16;
-    color:#fff1e1;
+    color:var(--default-player-box-background);
     font-size: 2vw;
     text-transform:uppercase;
-    color:#fff1e1;
+    color: var(--default-player-box-background);
     font-family:'Paytone One';
     text-align:center;
 }
 
-#div-player-1-box {
+#player-1-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     z-index: 4;
     position: relative;
     grid-area: 37 / 3 / 43 / 18;
-    background-color: #fff1e1;
-    border: 1px solid black;
-    font-size: 2.4vw;
-    text-transform:uppercase;
-    color:#000000;
-    font-family: Kavivanar;
-    text-align:justify;
-    text-indent: 6px;
+    background-color: var(--default-player-box-background);
+    border: 1px solid var(--default-player-box-border);
+    height: 5vw;
 }
 
-#div-player-2-box {
+#player-2-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     z-index: 6;
     position: relative;
     grid-area: 47 / 4 / 53 / 18;
-    background-color: #fff1e1;
-    border: 1px solid black;
-    font-size: 2.4vw;
-    text-transform:uppercase;
-    color:#000000;
+    background-color: var(--default-player-box-background);
+    border: 1px solid var(--default-player-box-border);
+    height: 5vw;
+}
+
+#player-1-box > p {
+    font-size: 2vw;
+    text-transform: uppercase;
+    color: var(--default-player-box-border);
     font-family:Kavivanar;
     text-align:justify;
     text-indent: 6px;
 }
 
+#player-2-box > p {
+    font-size: 2vw;
+    text-transform: uppercase;
+    color: var(--default-player-box-border);
+    font-family: Kavivanar;
+    text-align: justify;
+    text-indent: 6px;
+}
+
+
 #player-1-button {
-    background-color:#31ad54;
-    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    background-color:var(--correct-answer);
+    -webkit-text-stroke:0.0175em var(--default-player-box-border);
     grid-area: 37 / 21 / 43 / 18;
-    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;
+    text-shadow:0em 0em 0em var(--default-player-box-background);
+    color:var(--default-player-box-border);
     font-size: 1.8vw;
     -webkit-text-fill-color:transparent;
     text-transform: uppercase;
 }
 
 #player-2-button {
-    background-color:#31ad54;
+    background-color:var(--correct-answer);
     z-index: 10;
-    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    -webkit-text-stroke:0.0175em var(--default-player-box-border);
     grid-area: 47 / 21 / 53 / 18;
-    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;
+    text-shadow:0em 0em 0em var(--default-player-box-background);
+    color: var(--default-player-box-border);
     font-size: 1.8vw;
     -webkit-text-fill-color:transparent;
     text-transform: uppercase;
@@ -192,9 +218,10 @@ button {
 }
 
 #start-button {
-    background-color:#31ad54;
-    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
-    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;
+    background-color:var(--correct-answer);
+    -webkit-text-stroke:0.0175em var(--default-player-box-border);
+    text-shadow:0em 0em 0em var(--default-player-box-background);
+    color:var(--default-player-box-border);
     padding: 20px;
     font-size: 4vw;
     -webkit-text-fill-color:transparent;
@@ -208,6 +235,11 @@ button {
 }
 
 @media only screen and (min-width: 1600px) {
+
+    input {
+        height: 50px;
+        width: 150px;
+    }
 
     #main-text {
         font-size: 30px;
@@ -229,19 +261,19 @@ button {
         font-size: 30px;
     }
     
-    #div-title {
+    #title {
         font-size: 60px;
     }
 
-    #div-info {
+    #info {
         font-size: 30px;
     }
     
-    #div-player-1-box {
+    #player-1-box > p {
         font-size: 37px;
     }
     
-    #div-player-2-box {
+    #player-2-box > p {
         font-size: 37px;
     }
     

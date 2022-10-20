@@ -1,0 +1,296 @@
+:root {
+    --default-player-box-background: #fff1e1;
+    --default-player-box-border: #000000;
+    --select-player-box-background: #fecddc;
+    --select-player-box-border: red;
+    --correct-answer: #31ad54;
+    --background-color: #58a0ff;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+.page {
+    margin: 0 auto;
+}
+
+.main2 > button {
+    background-color: var(--select-player-box-background);
+    font-size: 2vw;
+    font-family: 'Paytone One';
+    padding: 1vw;
+    width: 50%;
+    height: 50%;
+}
+
+input {
+    width: 10vw;
+    height: 3vw;
+    margin-left: 0.2vw;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    max-height: 100vh;
+    max-width: 100%;
+    grid-template-columns: 2vw 25vw 25vw 25vw 2vw;
+    grid-template-rows: 2vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 2vw;
+    grid-template-areas:
+        ". . . . ."
+        ". title category difficulty ."
+        ". squiggle main main ."
+        ". info main main ."
+        ". player-1 main2 main2 ."
+        ". player-2 main2 main2 ."
+        ". start main2 main2 ."
+        ". . . . ."
+    ;
+    justify-content: center;
+    padding: 20px;
+}
+
+#title {
+    grid-area: title;
+    font-size: 3vw;
+    text-transform:uppercase;
+    -webkit-text-stroke:0.0175em var(--default-player-box-border);
+    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;letter-spacing:-0.02em;
+    font-family:'Paytone One';
+    line-height:1em;
+    -webkit-text-fill-color:transparent;
+    display: flex;
+    align-items: center;
+}
+
+#squiggle {
+    grid-area: squiggle;
+    width: 150px;
+    height: 70px;
+    margin: auto;
+}
+
+#info {
+    grid-area: info;
+    font-size: 1.5vw;
+    text-transform:uppercase;
+    color:var(--default-player-box-background);
+    font-family:'Paytone One';
+    text-align:center;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+#player-1-box {
+    grid-area: player-1;
+    background-color: var(--default-player-box-background);
+    border: 1px solid var(--default-player-box-border);
+    font-size: 1.8vw;
+    text-transform:uppercase;
+    color:var(--default-player-box-border);
+    font-family: Kavivanar;
+    display: flex;
+    text-indent: 1vw;
+    align-items: center;
+    height: 50%;
+    align-self: end;
+    justify-content: space-between;
+}
+
+#player-2-box {
+    grid-area: player-2;
+    background-color: var(--default-player-box-background);
+    border: 1px solid var(--default-player-box-border);
+    font-size: 1.8vw;
+    text-transform:uppercase;
+    color:var(--default-player-box-border);
+    font-family: Kavivanar;
+    display: flex;
+    text-indent: 1vw;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+}
+
+#player-1-button {
+    background-color: var(--correct-answer);
+    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    text-shadow:0em 0em 0em var(--default-player-box-background);
+    color: var(--default-player-box-border);
+    font-size: 1.5vw;
+    -webkit-text-fill-color:transparent;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Paytone One';
+    margin-right: 1vw;
+}
+
+#player-2-button {
+    background-color: var(--correct-answer);
+    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    text-shadow:0em 0em 0em var(--default-player-box-background);
+    color: var(--default-player-box-border);
+    font-size: 1.5vw;
+    -webkit-text-fill-color:transparent;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    font-family: 'Paytone One';
+    margin-right: 1vw;
+}
+
+#start-button {
+    grid-area: start;
+    background-color: var(--correct-answer);
+    -webkit-text-stroke:0.0175em rgb(0, 0, 0);
+    text-shadow:0em 0em 0em rgba(255, 241, 225, 1.000000);color:#000000;
+    padding: 10px;
+    font-size: 3vw;
+    -webkit-text-fill-color:transparent;
+    text-transform: uppercase;
+    font-family: 'Paytone One';
+}
+
+#category {
+    grid-area: category;
+    font-family: Kavivanar;
+    font-size: 1.5vw;
+    display: flex;
+    align-items: center;
+    background-color: var(--select-player-box-background);
+    border: 1px solid var(--default-player-box-border);
+}
+
+#difficulty {
+    grid-area: difficulty;
+    font-family: Kavivanar;
+    font-size: 1.5vw;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    background-color: var(--select-player-box-background);
+    border: 1px solid var(--default-player-box-border);
+}
+
+.main {
+    grid-area: main;
+    font-family: Kavivanar;
+    font-size: 1.5vw;
+    display: flex;
+    align-items: center;
+    background-color: var(--default-player-box-background);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#main-text {
+    font-family: Kavivanar;
+    font-size: 1.5vw;
+    padding: 20px;
+}
+
+.main2 {
+    grid-area: main2;
+    font-family: Kavivanar;
+    font-size: 1.5vw;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--default-player-box-background);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        display: grid;
+        height: 90vh;
+        max-height: 100%;
+        max-width: 100%;
+        grid-template-columns: 32vw 32vw 32vw;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "title squiggle info"
+            "player-1 player-2 start"
+            "category category difficulty"
+            "main main main"
+            "main2 main2 main2"
+        ;
+        justify-content: center;
+        position: relative;
+        top: 0%;
+        padding: 0px;
+        grid-gap: 0px;
+    }
+    #player-1-box {
+        align-self: center;
+        height: 50px;
+    }
+    
+    #player-2-box {
+        align-self: center;
+        height: 50px;
+    }
+
+    #start-button {
+        align-self: center;
+        justify-self: center;
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+    #main-text {
+        font-size: 30px;
+    }
+    
+    .main2 {
+        font-size: 30px;
+    }
+    
+    #category {
+        font-size: 30px;
+    }
+    
+    #difficulty {
+        font-size: 30px;
+    }
+
+    button {
+        font-size: 30px;
+    }
+    
+    #title {
+        font-size: 60px;
+    }
+
+    #info {
+        font-size: 30px;
+    }
+    
+    #player-1-box {
+        font-size: 37px;
+    }
+    
+    #player-2-box {
+        font-size: 37px;
+    }
+    
+    #player-1-button {
+        font-size: 25px;
+    }
+    
+    #player-2-button {
+        font-size: 25px;
+    }
+
+    #start-button {
+        font-size: 60px;
+    }
+
+}

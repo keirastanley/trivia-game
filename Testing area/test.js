@@ -1,6 +1,6 @@
 console.log("test linked");
 //Optimise and neaten existing code
-    //Remove as much repetition as possible
+    //Remove as much repetition as possible 
     //Switch for loops for array.map where possible
 //Allow for "play again" functionality.
 //Allow for single-player functionality.
@@ -23,10 +23,10 @@ let player1Score = 0;
 let player2Score = 0;
 
 //Store the parts of the html that we will be manipulating during gameplay
-let player1name = document.querySelector("#player-1");
-let player2name = document.querySelector("#player-2");
-let player1box = document.querySelector("#div-player-1-box");
-let player2box = document.querySelector("#div-player-2-box");
+let player1Name = document.querySelector("#player-1");
+let player2Name = document.querySelector("#player-2");
+let player1Box = document.querySelector("#player-1-box");
+let player2Box = document.querySelector("#player-2-box");
 let input1 = document.querySelector("#player-1-input");
 let input2 = document.querySelector("#player-2-input");
 let ok1 = document.querySelector("#player-1-button");
@@ -41,8 +41,8 @@ let main2 = document.querySelector(".main2");
 getQuestions();
 
 //Add event listeners to the OK boxes so that, on click, the corresponding function to set the names is called
-ok1.addEventListener("click", player1Name);
-ok2.addEventListener("click", player2Name);
+ok1.addEventListener("click", player1ChangeName);
+ok2.addEventListener("click", player2ChangeName);
 
 //Add an event listener to the start button so that, on click, a function to determine whose turn it is and start the game is called
 startButton.addEventListener("click", playerTurn);
@@ -58,29 +58,30 @@ async function getQuestions(){
             for (let j = 0; j < 3; j++){
             data.results[i].incorrect_answers[j] = decodeHtml(data.results[i].incorrect_answers[j]);
             }
+        //Only include multiple choice questions
         if (data.results[i].type == "multiple"){
             //Remove video game, anime and manga questions
-            if (data.results[i].category != "Entertainment: Video Games" && data.results[i].category != "Entertainment: Japanese Anime & Manga"){
+            if (data.results[i].category != "Entertainment: Video Games" 
+                && data.results[i].category != "Entertainment: Japanese Anime & Manga"){
                 questions.push(data.results[i]);
             }
         }
     }
 }
 
-//CHANGED: 
-    //Username can be changed as many times as desired before gameplay begins
-    //Repeated code removed
+
 //Set the player 1 name variable to user input and print their name in the box
-function player1Name(){
+function player1ChangeName(){
     player1 = input1.value;
-    player1name.textContent = `${player1}: ${player1Score}`;
+    player1Name.textContent = `${player1}: ${player1Score}`;
 }
 
 //Set the player 2 name variable to user input and print their name in the box
-function player2Name(){
+function player2ChangeName(){
     player2 = input2.value;
-    player2name.textContent = `${player2}: ${player2Score}`;
+    player2Name.textContent = `${player2}: ${player2Score}`;
 }
+
 
 //Function to determine whose turn it is, inform the players and start the game
 function playerTurn (){
@@ -91,8 +92,8 @@ function playerTurn (){
     input1.remove();
     input2.remove();
     //Put the names and scores on the screen
-    player1box.textContent = `${player1}: ${player1Score}`;
-    player2box.textContent = `${player2}: ${player2Score}`;
+    player1Box.textContent = `${player1}: ${player1Score}`;
+    player2Box.textContent = `${player2}: ${player2Score}`;
     //When playTimes is an even number, it's player 1's turn
     if (playTimes % 2 == 0) {
         //The main text informs the players whose turn it is 
@@ -100,20 +101,16 @@ function playerTurn (){
         //This info stays on the screen for 1 second and then the game begins
         setTimeout(startGame, 1000);
         //Highlight the box of the player whose turn it is
-        player1box.style.backgroundColor = "#fecddc";
-        player1box.style.borderColor = "red";
-        //Set the other box to its normal colours (important when turns change over)
-        player2box.style.backgroundColor = "#fff1e1";
-        player2box.style.borderColor = "black";
+        selectPlayerBox(player1Box);
+        defaultPlayerBox(player2Box);
+        
     }
     //When playTimes is an odd number, it's player 2's turn
     else {
         main.textContent = `${player2}, it's your turn.`;
         setTimeout(startGame, 1000);
-        player2box.style.backgroundColor = "#fecddc";
-        player2box.style.borderColor = "red";
-        player1box.style.backgroundColor = "#fff1e1";
-        player1box.style.borderColor = "black";        
+        selectPlayerBox(player2Box);
+        defaultPlayerBox(player1Box);       
     }
     //When the first player has had their turn...
     if (playTimes > 0) {
@@ -163,8 +160,6 @@ function printQuestion(){
                 main2.appendChild(newButton);
                 //Add an id to each button
                 newButton.id = (`#button-${i}`);
-                //Set the padding
-                newButton.style.padding = "40px";
                 //Set the textContent to be one of the answers
                 newButton.textContent = (`${answers[i]}`);
                 //Add an event listener so that, on click, the function to the determine if the player's answer was correct is called
@@ -200,7 +195,7 @@ function correctAnswer(event){
         //If the button contains the right answer change its colours to green and white
         if (buttons[i].textContent == questions[playTimes].correct_answer){
                 //Change the colours so that the players know which answer was correct 
-                buttons[i].style.backgroundColor = "#31ad54";
+                buttons[i].style.backgroundColor = "var(--correct-answer)";
                 buttons[i].style.color = "white";
                 //End the loop once the correct answer is found
                 break;
@@ -213,7 +208,7 @@ function correctAnswer(event){
         //Update their score variable by 1
         player1Score++;
         //Update their on-screen score by 1
-        player1box.textContent = `${player1}: ${player1Score}`;
+        player1Box.textContent = `${player1}: ${player1Score}`;
     }
     //If player 2 got the right answer...
     if (playTimes % 2 == 1 && event.target.textContent == questions[playTimes].correct_answer) {
@@ -222,7 +217,7 @@ function correctAnswer(event){
         //Update their score by 1
         player2Score++;
         //Update their on-screen score by 1
-        player2box.textContent = `${player2}: ${player2Score}`;
+        player2Box.textContent = `${player2}: ${player2Score}`;
     }
     //If the answer was wrong...
     if (incorrectAnswers.includes(event.target.textContent)) {
@@ -259,19 +254,19 @@ function determineWinner() {
     if (player1Score == player2Score) {
         main.textContent = "It's a draw!";
     }
+    startButton.textContent = "Play again";
+    startButton.addEventListener("click", playAgain);    
 }
 
 //Function to check if the game should end and, if not, prepare for the following questions
 function endGame() {
     //Set the box styling back to normal
-    player1box.style.backgroundColor = "#fff1e1";
-    player1box.style.borderColor = "black";
-    player2box.style.backgroundColor = "#fff1e1";
-    player2box.style.borderColor = "black";
+    defaultPlayerBox(player1Box);
+    defaultPlayerBox(player2Box);
     //Check if 10 questions have been asked
     if (playTimes > 9) {
         //If so, remove the start button and return true
-        startButton.remove();
+        startButton.removeEventListener();
         return true;
     }
     else {
@@ -294,4 +289,23 @@ function shuffle(array) {
         array[i] = array[j];
         array[j] = temp;
     }
+}
+
+function defaultPlayerBox(playerBox) {
+    playerBox.style.backgroundColor = "var(--default-player-box-background)";
+    playerBox.style.borderColor = "var(--default-player-box-border)";
+}
+
+function selectPlayerBox(playerBox) {
+    playerBox.style.backgroundColor = "var(--select-player-box-background)";
+    playerBox.style.borderColor = "var(--select-player-box-border)";
+}
+
+function playAgain(){
+    playTimes = 0;
+    player1Score = 0;
+    player2Score = 0;
+    getQuestions();
+    startButton.addEventListener("click", playerTurn);
+    startButton.textContent("Start");
 }
