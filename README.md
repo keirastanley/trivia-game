@@ -12,7 +12,7 @@
 The player names are "Player 1" and "Player 2" by default. If desired, players can type their name into the input box and upon clicking the "OK" button those names are displayed on the screen and also saved into variables that are used in gameply (e.g. "Player Name", it's your turn / Well done "Player Name", you won!"). The buttons and input box disappear once the user has entered their name. 
 
 #### Questions
-The trivia game takes its questions from an API (https://opentdb.com/api.php), loops through the data and pushes the questions to an array called "questions". This step allows for the user to specify which questions they would like to be excluded from the game (for example I have eliminated true or false questions to prevent issues with the 4-button design, as well as questions about video games / anime / manga to make the game more accessible to my parents who helped me do most of the gameplay testing!) 
+The trivia game takes its questions from an API (https://opentdb.com/api.php), loops through the data and pushes the questions to an array called "questions". This step allowed me to specify which questions I would like to be excluded from the game (for example I have eliminated true or false questions to prevent issues with the 4-button design, as well as questions about video games / anime / manga to make the game more accessible to my parents who helped me do most of the gameplay testing.) 
 
         //Only include multiple choice questions
         if (data.results[i].type == "multiple"){
@@ -23,7 +23,7 @@ The trivia game takes its questions from an API (https://opentdb.com/api.php), l
             }
         }
         
-Other advantages of pushing the questions into an array were that I could ran the data through a function that removes all HTML special entities before storing it and it also makes it easy to access the data outside of the async function to be used in the rest of the program.
+Other advantages of pushing the questions into an array were that I could run the data through a function that removes all HTML special entities before storing it and it also makes it easy to access the data outside of the async function to be used in the rest of the program.
 
 #### Gameplay
 ##### `playerTurn`
