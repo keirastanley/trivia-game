@@ -274,14 +274,8 @@ function selectPlayerBox(playerBox) {
     playerBox.style.borderColor = "var(--select-player-box-border)";
 }
 
-function playAgain(){
-    playTimes = 0;
-    player1Score = 0;
-    player2Score = 0;
-    getQuestions();
-    startButton.removeEventListener("click", playAgain);  
-    startButton.addEventListener("click", playerTurn);
-    startButton.textContent = "Start";
+function playAgain(){ 
+    location.reload();
 }
 
 //Function to remove HTML special entities
